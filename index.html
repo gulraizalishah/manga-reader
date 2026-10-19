@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101014">
+  <meta name="description" content="Discover manga and read chapters with MangaDex.">
+  <title>Panel — Manga Reader</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23d8ff3e'/%3E%3Cpath d='M22 20h56v60H22z' fill='%23101014'/%3E%3Cpath d='M50 20v60' stroke='%23d8ff3e' stroke-width='5'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" id="home-link" aria-label="Panel home"><span class="brand-mark">P</span><span>PANEL<span class="brand-dot">.</span></span></a>
+    <form id="search-form" class="searchbar" role="search">
+      <span class="search-icon">⌕</span>
+      <input id="search-input" type="search" placeholder="Search manga, authors…" autocomplete="off" aria-label="Search manga">
+      <button type="submit">Search</button>
+    </form>
+    <button id="saved-toggle" class="saved-button" type="button">♡ <span>Saved</span></button>
+  </header>
+
+  <main id="app">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="live-dot"></span> YOUR NEXT OBSESSION STARTS HERE</p>
+        <h1>Stories worth<br><em>staying up for.</em></h1>
+        <p class="hero-sub">Explore worlds, meet unforgettable characters, and find your next read.</p>
+        <button id="explore-button" class="primary-button" type="button">Explore manga <span>↗</span></button>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+        <div class="art-panel panel-back"><span>冒険</span></div>
+        <div class="art-panel panel-front"><div class="art-sun"></div><div class="art-mountain"></div><div class="art-silhouette"></div><span class="art-vertical">READ BEYOND</span></div>
+        <div class="art-sticker">VOL.<br><b>01</b></div>
+      </div>
+    </section>
+
+    <section class="content-section" id="discover-section">
+      <div class="section-heading">
+        <div><p class="eyebrow muted">CURATED FOR YOUR NEXT READ</p><h2 id="section-title">Popular right now</h2></div>
+        <div class="section-actions"><button class="text-button active" id="popular-tab">Popular</button><button class="text-button" id="latest-tab">Latest updates</button></div>
+      </div>
+      <div id="status" class="status"><span class="spinner"></span> Finding your next read…</div>
+      <div id="manga-grid" class="manga-grid"></div>
+      <button id="load-more" class="secondary-button hidden" type="button">Load more</button>
+    </section>
+    <section class="content-section hidden" id="saved-section">
+      <div class="section-heading"><div><p class="eyebrow muted">YOUR PERSONAL SHELF</p><h2>Saved manga</h2></div><button id="back-discover" class="text-button">← Discover</button></div>
+      <div id="saved-grid" class="manga-grid"></div>
+      <p id="empty-saved" class="empty-state">Your shelf is empty. Save a series to find it here later.</p>
+    </section>
+    <footer><span class="brand small"><span class="brand-mark">P</span> PANEL<span class="brand-dot">.</span></span><span>Powered by MangaDex API · Manga content belongs to its respective owners.</span><a href="https://api.mangadex.org/docs/" target="_blank" rel="noreferrer">API documentation ↗</a></footer>
+  </main>
+
+  <div id="modal-root"></div>
+  <div id="reader-root" class="reader-root hidden"></div>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
